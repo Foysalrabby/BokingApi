@@ -1,7 +1,14 @@
-const express = require('express');
+
+import express from 'express';
 const app = express();
-const mongoose = require('mongoose');
-require('dotenv').config();
+
+import mongoose from 'mongoose';
+import authRoute from './routes/auth.js';
+import authHotels from './routes/hotels.js';
+import authRooms from './routes/rooms.js';
+import authUser from './routes/users.js';
+import dotenv from 'dotenv' ;
+dotenv.config();
 const port=5000;
 
 //connect moongse
@@ -14,6 +21,13 @@ const connected = async()=>{
         throw(error);
     }
 }
+mongoose.connection.on("disconnected",()=>{
+    console.log("disconnected");
+});
+mongoose.connection.on("connected",()=>{
+    console.log("connected yes");
+})
+
 
 
 // const { MongoClient, ServerApiVersion } = require('mongodb');
@@ -43,16 +57,17 @@ const connected = async()=>{
 // }
 // run().catch(console.dir);
 
+//middleware
+app.use("/auth",authRoute);
+app.use("/hotels",authHotels);
+app.use("/rooms",authRooms);
+app.use("/users",authUser);
 
 
 
 
 
 
-
-app.get("/" ,(req,res)=>{
-    res.send("hello");
-})
 
 app.listen(port, () =>{
     connected();
