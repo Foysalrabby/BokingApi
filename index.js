@@ -1,5 +1,6 @@
 
 import express from 'express';
+//import bodyParser from "body-parser";
 const app = express();
 
 import mongoose from 'mongoose';
@@ -58,6 +59,8 @@ mongoose.connection.on("connected",()=>{
 // run().catch(console.dir);
 
 //middleware
+app.use(express.json());
+// app.use(bodyParser.json());
 app.use("/auth",authRoute);
 app.use("/hotels",authHotels);
 app.use("/rooms",authRooms);
