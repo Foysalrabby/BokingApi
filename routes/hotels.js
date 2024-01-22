@@ -62,12 +62,10 @@ router.get("/:id", async(req,res) => {
 //all get
 
 router.get("/",async (req,res,next) => { 
-        const faild=true;
-      
-       if(faild) return next(createError(401,"you are not au"));
+        
      
     try {
-      const hotels=  await Hotel.findById("jhfjd");
+      const hotels=  await Hotel.find();
         return res.status(200).json(hotels);
     } catch (error) {
          //console.log(error);
