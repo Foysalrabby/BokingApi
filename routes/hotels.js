@@ -61,14 +61,15 @@ router.get("/:id", async(req,res) => {
 //all get
 
 router.get("/",async (req,res,next) => { 
-    console.log("i  am getall hotel");
+    
      
     try {
-      const hotels=  await Hotel.find();
+      const hotels=  await Hotel.findById("jhfjd");
         return res.status(200).json(hotels);
     } catch (error) {
         console.log(error);
-        return res.status(500).send(error);
+        // return res.status(500).send(error);
+        next();
         
     }
 

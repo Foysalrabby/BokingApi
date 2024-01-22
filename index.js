@@ -68,8 +68,8 @@ app.use("/users",authUser);
 
 //error handling
 app.use((req,res,next) => {
-console.log("i am ");
-next()
+return res.status(500).json("error from middle ware");
+
 });
 
 
