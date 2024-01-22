@@ -1,6 +1,7 @@
 import express from "express";
 const router = express.Router();
 import Hotel from "../api/Model/hotel.js";
+import { createError } from "../api/Untils/error.js";
 
 //create
 router.post("/", async (req, res) => {
@@ -62,10 +63,8 @@ router.get("/:id", async(req,res) => {
 
 router.get("/",async (req,res,next) => { 
         const faild=true;
-       const errr=new Error();
-       errr.status=404;
-       errr.message="hello find error";
-       if(faild) return next(errr);
+      
+       if(faild) return next(createError(401,"you are not au"));
      
     try {
       const hotels=  await Hotel.findById("jhfjd");
