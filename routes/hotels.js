@@ -67,9 +67,9 @@ router.get("/",async (req,res,next) => {
       const hotels=  await Hotel.findById("jhfjd");
         return res.status(200).json(hotels);
     } catch (error) {
-        console.log(error);
+         //console.log(error);
         // return res.status(500).send(error);
-        next();
+        next(error);
         
     }
 

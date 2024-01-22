@@ -67,8 +67,16 @@ app.use("/rooms",authRooms);
 app.use("/users",authUser);
 
 //error handling
-app.use((req,res,next) => {
-return res.status(500).json("error from middle ware");
+app.use((err,req,res,next) => {
+    const statuserr= err.status || 500;
+    const staterrmeassa= err.message || "somethig is wrong";
+return res.status(statuserr).json({
+success:false,
+status:statuserr,
+message:staterrmeassa,
+stack:err.stack
+
+});
 
 });
 
