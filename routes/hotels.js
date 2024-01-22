@@ -61,7 +61,11 @@ router.get("/:id", async(req,res) => {
 //all get
 
 router.get("/",async (req,res,next) => { 
-    
+        const faild=true;
+       const errr=new Error();
+       errr.status=404;
+       errr.message="hello find error";
+       if(faild) return next(errr);
      
     try {
       const hotels=  await Hotel.findById("jhfjd");
