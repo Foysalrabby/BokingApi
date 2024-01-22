@@ -60,7 +60,9 @@ router.get("/:id", async(req,res) => {
 
 //all get
 
-router.get("/",async (req,res) => { 
+router.get("/",async (req,res,next) => { 
+    console.log("i  am getall hotel");
+     
     try {
       const hotels=  await Hotel.find();
         return res.status(200).json(hotels);

@@ -66,6 +66,12 @@ app.use("/hotels",authHotels);
 app.use("/rooms",authRooms);
 app.use("/users",authUser);
 
+//error handling
+app.use((req,res,next) => {
+console.log("i am ");
+next()
+});
+
 
 
 
