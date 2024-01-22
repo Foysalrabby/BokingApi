@@ -16,11 +16,62 @@ router.post("/", async (req, res) => {
 
 //update
 
+router.put("/:id",async(req,res) => {
+    try {
+
+        const Updatehotel=await Hotel.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
+        return res.status(200).send(Updatehotel);
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
+        
+    }
+
+})
+
 //delete
+router.delete("/:id",async(req,res)=>{
+    try {
+        await Hotel.findByIdAndDelete(req.params.id);
+        return res.status(200).send("delete succeful");
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
+        
+    }
+
+});
 
 //get
+router.get("/:id", async(req,res) => {
+    try {
+       const hotels = await Hotel.findById(req.params.id);
+        return res.status(200).json(hotels);
+        
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
+        
+    }
+
+});
 
 //all get
+
+router.get("/",async (req,res) => { 
+    try {
+      const hotels=  await Hotel.find();
+        return res.status(200).json(hotels);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send(error);
+        
+    }
+
+})
+
     
 
 export default router;
