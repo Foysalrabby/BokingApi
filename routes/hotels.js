@@ -2,18 +2,20 @@ import express from "express";
 const router = express.Router();
 import Hotel from "../api/Model/hotel.js";
 import { createError } from "../api/Untils/error.js";
+import { Createhotel } from "../api/Controllers/Hotell.js";
 
 //create
-router.post("/", async (req, res) => {
-    const hotelInfo = new Hotel(req.body);
-    try {
-        const savedHotel = await hotelInfo.save();
-        return res.status(200).send(savedHotel);
-    } catch (error) {
-        console.log(error);
-        return res.status(500).send(error);
-    }
-});
+// router.post("/", async (req, res) => {
+//     const hotelInfo = new Hotel(req.body);
+//     try {
+//         const savedHotel = await hotelInfo.save();
+//         return res.status(200).send(savedHotel);
+//     } catch (error) {
+//         console.log(error);
+//         return res.status(500).send(error);
+//     }
+// }); // before create hotel
+router.post("/",Createhotel);
 
 //update
 
