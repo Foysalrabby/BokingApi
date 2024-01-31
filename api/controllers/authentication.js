@@ -22,13 +22,22 @@ try {
     
 } 
 }
-//update 
+//create Login
 
 
-//delete
+export const createusrlogin=async(req,res,next) =>{
+try {
+    
+const usercheck= await User.findOne({username:req.body.username})
+if(!usercheck){return res.status(404).send("Username is not found")}
 
+const passwordcheck= await bcrypt.compareSync(req.body.password, usercheck.password) 
+if(!passwordcheck){return res.status(404).send("password is not coorect")}
 
-// getbyid
+res.status(200).json(usercheck);
 
-//getAll
+} catch (error) {
+    next(error); 
+}
 
+}

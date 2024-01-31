@@ -1,6 +1,6 @@
 import express from "express";
 import User from "../api/Model/User.js";
-import { createUserAUTH } from "../api/controllers/authentication.js";
+import { createUserAUTH, createusrlogin } from "../api/controllers/authentication.js";
 const router=express.Router();
 //create post
 // router.post("/",async(req,res,next) => {
@@ -16,6 +16,6 @@ const router=express.Router();
 
 // })  //before import createAuthuser
 router.post("/register",createUserAUTH);
-
+router.post("/login",createusrlogin);
 
 export default router;
