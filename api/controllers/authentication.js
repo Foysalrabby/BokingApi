@@ -1,5 +1,6 @@
 import User from "../Model/User.js";
 import bcrypt from "bcryptjs";
+import { createError } from "../Untils/error.js";
 
 //create registration 
 export const createUserAUTH = async(req,res,next) => {
@@ -32,9 +33,11 @@ const usercheck= await User.findOne({username:req.body.username})
 if(!usercheck){return res.status(404).send("Username is not found")}
 
 const passwordcheck= await bcrypt.compareSync(req.body.password, usercheck.password) 
-if(!passwordcheck){return res.status(404).send("password is not coorect")}
+if(!passwordcheck){return next(createError("404","password is not coorect")) }
 
-res.status(200).json(usercheck);
+const {username,password, ...otheedeails}=usercheck._doc;
+
+res.status(200).json({...otheedeails});
 
 } catch (error) {
     next(error); 
