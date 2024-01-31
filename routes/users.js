@@ -1,8 +1,25 @@
 import  express from "express";
-
-
 const router=express.Router();
-router.get("/",(req,res)=>{
-res.send("hello this is user method");
-})
+
+
+
+//create post
+
+
+//update
+
+
+//delete
+
+
+
+//get 
+
+
+
+//get all
+
+
+
+
 export default router;
