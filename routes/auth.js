@@ -15,40 +15,7 @@ const router=express.Router();
 //     }
 
 // })  //before import createAuthuser
-router.post("/",createUserAUTH);
-//update
-router.put("/:id",async(req,res,next) => {
-    
-    try{
-       const updateUser=await User.findByIdAndUpdate(req.params.id,{ $set: req.body},{new:true});
-       return res.status(200).send(updateUser);
+router.post("/register",createUserAUTH);
 
-
-    }catch(error){
-        next(error);
-    }
-
-})
-
-//delete
-router.delete("/:id",async(req,res,next) => {
-    
-    try{
-      await User.findByIdAndDelete(req.params.id);
-       return res.status(200).send("delete success");
-
-
-    }catch(error){
-        next(error);
-    }
-
-})
-
-
-//get 
-
-
-
-//get all
 
 export default router;
