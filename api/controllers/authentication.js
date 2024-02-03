@@ -41,14 +41,18 @@ if(!passwordcheck){return next(createError("404","password is not coorect")) }
 const {username,password, ...otheedeails}=usercheck._doc;
 // res.status(200).json({...otheedeails});
  //jwtwebtoken
-const token = jwt.sign({ id:usercheck._id,isAdmin:usercheck.isAdmin}, process.env.JW_TOKEN,{
-    expiresIn:"2h"
-});
-res.status(200).json({
-   "access_token":token,
-   "error":"authentication failed",
-   "data" :{...otheedeails}
-})
+ 
+const token = jwt.sign({ id:usercheck._id,isAdmin:usercheck.isAdmin}, process.env.JW_TOKEN);
+res.cookie("access_token",token,{expiresIn:'7d',httpOnly:true}).status(200).json({data:{...otheedeails}});
+
+// res.cookie( "access_token",token,{
+//     httpOnly:true
+// }).
+// status(200).json({
+  
+//    "error":"authentication failed",
+//    "data" :{...otheedeails}
+// })
 } catch (error) {
     next(error); 
 }
