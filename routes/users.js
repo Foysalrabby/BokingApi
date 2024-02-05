@@ -1,7 +1,7 @@
 import express from "express";
 import User from "../api/Model/User.js";
 import { createUser, deletUser, getAlluser, getidUser, updatUser } from "../api/controllers/user.js";
-import { Varifyctoken } from "../api/Untils/Varifytoken.js";
+import { VarifyAdmin, VarifyUser, Varifyctoken } from "../api/Untils/Varifytoken.js";
 const router=express.Router();
 
 
@@ -9,6 +9,14 @@ const router=express.Router();
 
 router.get("/checkloginToken",Varifyctoken,(req,res,next)=>{
     res.send("hey you are login");
+})
+//varify user
+router.get("/checkuser/:id",VarifyUser,(req,res,next)=>{
+    res.send(" you pass login and can delete your account");
+})
+//varify admin
+router.get("/checkAdmin/:id",VarifyAdmin,(req,res,next)=>{
+    res.send("you can delete all  account so you are admin");
 })
 //create post
 router.post("/",createUser);//create
