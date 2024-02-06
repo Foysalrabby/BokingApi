@@ -1,15 +1,15 @@
 import User from "../Model/User.js";
 
 //create user
-export const createUser= async(req,res,next) => {
-    const UserlInfo = new User(req.body);
-     try {
-         const savedUser = await UserlInfo.save();
-         return res.status(200).send(savedUser);
-     } catch (error) {
-         next(error);
-     }
-}
+// export const createUser= async(req,res,next) => {
+//     const UserlInfo = new User(req.body);
+//      try {
+//          const savedUser = await UserlInfo.save();
+//          return res.status(200).send(savedUser);
+//      } catch (error) {
+//          next(error);
+//      }
+// }
 //Update user
 export const updatUser= async(req,res,next)=>{
     try {

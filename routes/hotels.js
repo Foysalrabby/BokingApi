@@ -3,6 +3,7 @@ const router = express.Router();
 import Hotel from "../api/Model/hotel.js";
 import { createError } from "../api/Untils/error.js";
 import { createHotel, deletHotel, getallHotel, getidHotel, updateHotel } from "../api/controllers/hotel.js";
+import { VarifyAdmin } from "../api/Untils/Varifytoken.js";
 
 
 
@@ -17,13 +18,13 @@ import { createHotel, deletHotel, getallHotel, getidHotel, updateHotel } from ".
 //           }
 //  });
 
-router.post("/",createHotel);
+router.post("/",VarifyAdmin,createHotel);
 //update
 
-router.put("/:id",updateHotel);
+router.put("/:id",VarifyAdmin,updateHotel);
 
 //delete
-router.delete("/:id",deletHotel);
+router.delete("/:id",VarifyAdmin,deletHotel);
 
 //get
 router.get("/:id",getidHotel );
