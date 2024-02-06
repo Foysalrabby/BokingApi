@@ -1,29 +1,17 @@
 import  express from "express";
 import Room from "../api/Model/Room.js";
+import { createRoom, deleteRoom, getallRoom, getidRoom, updateRoom } from "../api/controllers/room.js";
 const router=express.Router();
 
 //create rooms
-router.post("/",async(req,res,next) => { 
-     const Roominfo=new Room(req.body);
-    try {
-          const saveRoom=await Roominfo.save();
-          res.status(200).send(saveRoom);
-        
-    } catch (error) {
-       next(error); 
-    }
-
-})
+router.post("/",createRoom);
 //update
-router.put("/:id",async(req,res,next) =>{
-    try {
-        const UpdateRooms=await Room.findByIdAndUpdate(req.params.id,{$set:req.body},{new:true});
-        res.status(202).send(UpdateRooms);
-        
-    } catch (error) {
-        next(error);
-    }
-})
-
+router.put("/:id",updateRoom);
+//delete
+router.delete("/:id",deleteRoom);
+//getid
+router.get("/:id",getidRoom);
+//getall
+router.get("/",getallRoom);
 
 export default router;
