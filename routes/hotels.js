@@ -1,6 +1,5 @@
 import express from "express";
 const router = express.Router();
-import Hotel from "../api/Model/hotel.js";
 import { createError } from "../api/Untils/error.js";
 import { createHotel, deletHotel, getallHotel, getidHotel, updateHotel } from "../api/controllers/hotel.js";
 import { VarifyAdmin } from "../api/Untils/Varifytoken.js";
