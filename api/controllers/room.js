@@ -40,7 +40,7 @@ export const deleteRoom= async(req,res,next) => {
     try {
           await Room.findByIdAndDelete(req.params.id);
           try {
-            await Hotel.findByIdAndUpdate(hotelId,{$pull :req.params.id});
+            await Hotel.findByIdAndUpdate(hotelId,{ $pull:{room:req.params.id} });
            //hotel id dibo hotle createhotel controller create hotel.js  then diffrent room
            // set id ta delete hobe and hotel room number faka hbe 
            } catch (error) {
