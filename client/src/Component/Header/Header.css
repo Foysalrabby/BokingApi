@@ -1,0 +1,36 @@
+.Header{
+    display: flex;
+    background-color: rgb(27, 27, 214);
+  justify-content: center;
+}
+.HeaderContainer{
+    width: 100%;
+    color: #ffffff;
+    max-width: 1024px;
+    align-items: center;
+    margin: 20px 0px 100px 0px;
+    
+}
+.HeaderList{
+    display: flex;
+    gap: 40px;
+
+}
+.HeaderListItem{
+   display: flex;
+   align-items: center;
+   gap: 10px;
+
+}
+.HeaderListItem.active{
+border: 1px solid #fff;
+border-radius: 5px;
+padding: 5px;
+}
+.headerTittle{
+    margin-top: 30px;
+}
+.navbutton{
+   padding: 5px 5px 5px 0px ;
+   
+}
