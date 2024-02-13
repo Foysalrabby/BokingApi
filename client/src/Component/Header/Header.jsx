@@ -7,7 +7,20 @@ import { HiMiniHomeModern } from "react-icons/hi2";
 import { RiTaxiFill } from "react-icons/ri";
 import { MdDateRange } from "react-icons/md";
 import { FaPeopleRoof } from "react-icons/fa6";
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import { DateRange } from 'react-date-range';
+import {useState} from 'react'
+
 const Header = () => {
+
+    const [state, setState] = useState([
+        {
+          startDate: new Date(),
+          endDate: null,
+          key: 'selection'
+        }
+      ]);
     return (
         <div className='Header'>
         <div className="HeaderContainer">
@@ -50,6 +63,12 @@ const Header = () => {
          <div className="HeaderSearchitem">
           <FaPeopleRoof  className='headericon'/>
           <span className='headertext'>2 Adult 2 Children 1 Room </span>
+          <DateRange
+            editableDateInputs={true}
+            onChange={item => setState([item.selection])}
+            moveRangeOnFirstSelection={false}
+            ranges={state}
+            />
          </div>
          <div className="HeaderSearchitem">
           <button className='navbutton'>Search</button>
