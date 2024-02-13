@@ -14,7 +14,7 @@ import { format  } from 'date-fns';
 import {useState} from 'react'
 
 const Header = () => {
-     const [opendate,setopendate]=useState(false);
+     const [opendate,setopendate]=useState(false); // for date open and off
     const [state, setState] = useState([
         {
           startDate: new Date(),
@@ -22,6 +22,13 @@ const Header = () => {
           key: 'selection'
         }
       ]);
+      const [options,setoptions]=useState(false);  //to increase child adult
+      const [optionsnum,setoptionsnum]=useState({
+        adult:1,
+        child:0,
+        room:1
+      });
+
     return (
         <div className='Header'>
         <div className="HeaderContainer">
@@ -75,7 +82,40 @@ const Header = () => {
          </div>
          <div className="HeaderSearchitem">
           <FaPeopleRoof  className='headericon'/>
-          <span className='headertext'>2 Adult 2 Children 1 Room </span>
+          <span className='headertext'>{`Adult ${optionsnum.adult} Children
+            ${optionsnum.child} 
+          Room ${optionsnum.room} `} </span>
+          <div className="optons">
+           <div className='optionitem'> 
+           <span className='headertext'> Adult</span>
+              <div className="optionitemhelp">
+              <button className='optionsbutton'> +</button>
+                <span className='headertext'>0</span>
+                <button className='optionsbutton'> -</button> 
+              </div>
+           </div>
+
+
+
+           <div className='optionitem'> 
+              <span className='headertext'> Children</span>
+              <div className="optionitemhelp">
+              <button className='optionsbutton'> +</button>
+                <span className='headertext'>0</span>
+                <button className='optionsbutton'> -</button> 
+              </div>
+           </div>
+
+           <div className='optionitem'>
+              <span className='headertext'> Room</span>
+              <div className="optionitemhelp">
+              <button className='optionsbutton'> +</button>
+                <span className='headertext'>0</span>
+                <button  className='optionsbutton'> -</button> 
+              </div>
+           </div>
+           
+          </div>
          
          </div>
          <div className="HeaderSearchitem">
