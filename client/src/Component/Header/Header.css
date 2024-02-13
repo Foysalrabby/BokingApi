@@ -1,7 +1,8 @@
 .Header{
-    display: flex;
-    background-color: rgb(27, 27, 214);
+display: flex;
+  background-color: rgb(27, 27, 214);
   justify-content: center;
+  position: relative;
 }
 .HeaderContainer{
     width: 100%;
@@ -9,6 +10,7 @@
     max-width: 1024px;
     align-items: center;
     margin: 20px 0px 100px 0px;
+   
     
 }
 .HeaderList{
@@ -31,6 +33,44 @@ padding: 5px;
     margin-top: 30px;
 }
 .navbutton{
-   padding: 5px 5px 5px 0px ;
-   
+   padding: 5px 5px 5px 5px ;
+   margin-bottom: 5px;
+   cursor: pointer; 
+   background-color:rgb(42, 111, 190) ;
+   color: #fff;
+   border: none;
+}
+.HeaderSearch{
+    display: flex;
+    background-color: #ffffff;
+    height: 30px;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    max-width: 1024px;
+    justify-content: space-around;
+    border: 2px solid yellow;
+    border-radius: 3px;
+    position:absolute;
+    bottom: -25px;
+}
+.HeaderSearchitem{
+    display: flex;
+    gap: 10px;
+  
+}
+.inputseacrheader{
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+.headericon{
+    color: rgba(83, 79, 79, 0.589);
+    cursor: pointer;
+    font-size: 15px;
+}
+.headertext{
+    color: rgba(83, 79, 79, 0.589);
+    font-size: 15px;
+    
 }
