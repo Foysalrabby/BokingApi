@@ -28,7 +28,15 @@ const Header = () => {
         child:0,
         room:1
       });
-
+//to increase and decrease button value
+const handleopen =(name,operation) => {
+  setoptionsnum((prev)=>{
+    return{
+      ...prev,[name]:operation === "i" ? optionsnum[name] + 1 : optionsnum[name] - 1,
+    }
+  });
+};
+  
     return (
         <div className='Header'>
         <div className="HeaderContainer">
@@ -88,10 +96,10 @@ const Header = () => {
           <div className="optons">
            <div className='optionitem'> 
            <span className='headertext'> Adult</span>
-              <div className="optionitemhelp">
-              <button className='optionsbutton'> +</button>
+              <div className="optionitemhelp" >
+              <button className='optionsbutton' onClick={()=> handleopen("adult","i")}> +</button>
                 <span className='headertext'>0</span>
-                <button className='optionsbutton'> -</button> 
+                <button className='optionsbutton' onClick={()=> handleopen("adult","d")}> -</button> 
               </div>
            </div>
 
@@ -100,18 +108,18 @@ const Header = () => {
            <div className='optionitem'> 
               <span className='headertext'> Children</span>
               <div className="optionitemhelp">
-              <button className='optionsbutton'> +</button>
+              <button className='optionsbutton' onClick={()=> handleopen("child","i")}> +</button>
                 <span className='headertext'>0</span>
-                <button className='optionsbutton'> -</button> 
+                <button className='optionsbutton' onClick={()=> handleopen("child","d")}> -</button> 
               </div>
            </div>
 
            <div className='optionitem'>
               <span className='headertext'> Room</span>
               <div className="optionitemhelp">
-              <button className='optionsbutton'> +</button>
+              <button className='optionsbutton' onClick={()=> handleopen("room","i")}> +</button>
                 <span className='headertext'>0</span>
-                <button  className='optionsbutton'> -</button> 
+                <button  className='optionsbutton' onClick={()=> handleopen("room","d")}> -</button> 
               </div>
            </div>
            
