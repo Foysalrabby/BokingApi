@@ -95,5 +95,8 @@ position: absolute;
   margin-left: 5px;
   margin-right: 5px;
   border: 1px solid rgb(42, 111, 190) ;
+  cursor: pointer;
 }
-
+.optionsbutton:disabled{
+cursor: not-allowed;
+}

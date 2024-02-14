@@ -22,7 +22,7 @@ const Header = () => {
           key: 'selection'
         }
       ]);
-      const [options,setoptions]=useState(false);  //to increase child adult
+      const [optionsopen,setoptionsopen]=useState(false);  //to increase child adult
       const [optionsnum,setoptionsnum]=useState({
         adult:1,
         child:0,
@@ -89,17 +89,20 @@ const handleopen =(name,operation) => {
          }
          </div>
          <div className="HeaderSearchitem">
-          <FaPeopleRoof  className='headericon'/>
-          <span className='headertext'>{`Adult ${optionsnum.adult} Children
+          <FaPeopleRoof  className='headericon' onClick={()=> setoptionsopen(!optionsopen)}/>
+          <span  className='headertext'>{`Adult ${optionsnum.adult} Children
             ${optionsnum.child} 
           Room ${optionsnum.room} `} </span>
-          <div className="optons">
+
+          {optionsopen && <div className="optons">
            <div className='optionitem'> 
            <span className='headertext'> Adult</span>
               <div className="optionitemhelp" >
               <button className='optionsbutton' onClick={()=> handleopen("adult","i")}> +</button>
-                <span className='headertext'>0</span>
-                <button className='optionsbutton' onClick={()=> handleopen("adult","d")}> -</button> 
+                <span className='headertext'>{optionsnum.adult}</span>
+                <button 
+                disabled={optionsnum.adult <= 1 }
+                className='optionsbutton' onClick={()=> handleopen("adult","d")}> -</button> 
               </div>
            </div>
 
@@ -109,8 +112,10 @@ const handleopen =(name,operation) => {
               <span className='headertext'> Children</span>
               <div className="optionitemhelp">
               <button className='optionsbutton' onClick={()=> handleopen("child","i")}> +</button>
-                <span className='headertext'>0</span>
-                <button className='optionsbutton' onClick={()=> handleopen("child","d")}> -</button> 
+                <span className='headertext'>{optionsnum.child}</span>
+                <button
+                 disabled={optionsnum.child <= 0 }
+                 className='optionsbutton' onClick={()=> handleopen("child","d")}> -</button> 
               </div>
            </div>
 
@@ -118,13 +123,15 @@ const handleopen =(name,operation) => {
               <span className='headertext'> Room</span>
               <div className="optionitemhelp">
               <button className='optionsbutton' onClick={()=> handleopen("room","i")}> +</button>
-                <span className='headertext'>0</span>
-                <button  className='optionsbutton' onClick={()=> handleopen("room","d")}> -</button> 
+                <span className='headertext'>{optionsnum.room}</span>
+                <button 
+                 disabled={optionsnum.room <= 1 }
+                 className='optionsbutton' onClick={()=> handleopen("room","d")}> -</button> 
               </div>
            </div>
            
           </div>
-         
+         }
          </div>
          <div className="HeaderSearchitem">
           <button className='navbutton'>Search</button>
