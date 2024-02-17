@@ -39,7 +39,7 @@ const handleopen =(name,operation) => {
   
     return (
         <div className='Header'>
-        <div className="HeaderContainer">
+        <div className={ type ==="listshow" ?"HeaderContainer listshow": "HeaderContainer"}>
         <div className="HeaderList">
         <div className="HeaderListItem active">
         <MdHotel />

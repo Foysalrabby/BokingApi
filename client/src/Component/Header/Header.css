@@ -10,8 +10,11 @@ display: flex;
     max-width: 1024px;
     align-items: center;
     margin: 20px 0px 100px 0px;
-   
     
+}
+
+.HeaderContainer.listshow{
+    margin: 20px 0px 20px 0px; 
 }
 .HeaderList{
     display: flex;
