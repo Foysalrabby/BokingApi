@@ -13,7 +13,7 @@ import { DateRange } from 'react-date-range';
 import { format  } from 'date-fns';
 import {useState} from 'react'
 
-const Header = () => {
+const Header = ({type}) => {
      const [opendate,setopendate]=useState(false); // for date open and off
     const [state, setState] = useState([
         {
@@ -62,6 +62,8 @@ const handleopen =(name,operation) => {
         <span>Airtaxi</span>
         </div> 
         </div>
+        { type !== "listshow" &&
+          <> 
         <h2 className='headerTittle'>A Life Time Discount? It's Genius</h2>
        <p className='headerdes'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
        Cumque eius optio amet facere ut nisi culpa quaerat explicabo quidem perferendis.</p>
@@ -138,7 +140,8 @@ const handleopen =(name,operation) => {
          </div>
 
         </div> 
-
+         </>
+        }
         </div>   
         </div>
     );
