@@ -1,0 +1,29 @@
+.featured{
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.featureditem{
+    position: relative;
+    border: 1px solid whitesmoke;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1;
+}
+.featureImg{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    
+}
+.features_title{
+ position: absolute;
+ font-size: 10px;
+ font-weight: 400;
+ color: rgb(211, 219, 226);
+ bottom: 20px;
+ left: 5px;
+}
+
