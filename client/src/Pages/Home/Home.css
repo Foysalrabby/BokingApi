@@ -5,7 +5,8 @@
     align-items: center;
    
 }
-.hometitle{
+h1{
    width:1024px ;
-   font-size: 10px;  
+   font-size: 18px;  
+   padding: 5px 0px;
 }
