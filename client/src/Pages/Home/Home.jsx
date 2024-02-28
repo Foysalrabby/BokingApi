@@ -5,6 +5,7 @@ import Features from '../../Component/Features/Features';
 import './Home.css';
 import Propertieslist from '../../Component/PropertieList/Propertieslist';
 import Propertiesfeautre from '../../Component/Propertfeature/Propertiesfeautre';
+import Maillist from '../../Component/Maillist/Maillist';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Propertieslist/>
             <h1> Browse Types Propertie</h1>
             <Propertiesfeautre/>
+            <Maillist/>
             </div>
             
         </div>
