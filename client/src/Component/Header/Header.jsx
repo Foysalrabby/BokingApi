@@ -12,8 +12,10 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRange } from 'react-date-range';
 import { format  } from 'date-fns';
 import {useState} from 'react'
+import { useNavigate } from "react-router-dom";
 
 const Header = ({type}) => {
+      const navigate=useNavigate(); //use value pass with click btn go page
      const [opendate,setopendate]=useState(false); // for date open and off
     const [state, setState] = useState([
         {
@@ -36,6 +38,10 @@ const handleopen =(name,operation) => {
     }
   });
 };
+//handle search btn to go list.jsx
+const handleSearchbtn=()=>{
+navigate("/list");
+}
   
     return (
         <div className='Header'>
@@ -136,7 +142,7 @@ const handleopen =(name,operation) => {
          }
          </div>
          <div className="HeaderSearchitem">
-          <button className='navbutton'>Search</button>
+          <button onClick={()=> handleSearchbtn()} className='navbutton'>Search</button>
          </div>
 
         </div> 

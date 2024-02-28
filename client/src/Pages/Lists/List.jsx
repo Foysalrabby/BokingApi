@@ -7,6 +7,14 @@ const List = () => {
         <div>  
             <Navbar/>
             <Header type = "listshow"/>
+            <div className="Listcontainer">
+             <div className="listwrapper">
+           <div className="listsearch">
+                 <p>search</p>
+           </div>
+           <div className="listresult"></div>
+             </div>
+            </div>
         </div>
     );
 };
