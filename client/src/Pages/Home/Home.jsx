@@ -6,6 +6,7 @@ import './Home.css';
 import Propertieslist from '../../Component/PropertieList/Propertieslist';
 import Propertiesfeautre from '../../Component/Propertfeature/Propertiesfeautre';
 import Maillist from '../../Component/Maillist/Maillist';
+import Footer from '../../Component/Footer/Footer';
 
 const Home = () => {
     return (
@@ -19,6 +20,7 @@ const Home = () => {
             <h1> Browse Types Propertie</h1>
             <Propertiesfeautre/>
             <Maillist/>
+            <Footer/>
             </div>
             
         </div>

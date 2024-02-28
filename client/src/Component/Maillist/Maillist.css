@@ -1,0 +1,37 @@
+.Maillist{
+    width: 100%;
+    margin: 10px;
+    padding: 40px;
+    align-items: center;
+    background-color: rgb(25, 63, 231);
+    justify-content: center;
+    display: flex; 
+    flex-direction: column; 
+
+}
+.Maillisttitle{
+    margin-bottom: 2px;
+    color: aliceblue;
+    font-weight: 400;
+}
+.Maildesc{
+    color: aliceblue;  
+}
+.mailInputcontainer{
+    margin-top: 10px;
+}
+.Mailinputbox{
+border: none;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.mailbutton{
+    padding: 7px;
+    background-color: rgb(59, 59, 238);
+    border: none;
+    color: aliceblue;
+    cursor: pointer;
+    border-radius: 5px;
+}
