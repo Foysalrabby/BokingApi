@@ -26,3 +26,28 @@
     flex: 3;
     background-color: aqua;
 }
+.listsearch label{
+    font-size: 13px;
+}
+.lsitem{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+.lsitem input {
+ padding: 5px ;
+ border: none;
+ height: 25px;
+ cursor: pointer;
+}
+.lsitem span {
+   background-color: aliceblue;
+   padding: 5px ;
+   height: 25px;
+   cursor: pointer;
+   }
+.listemdate {
+font-size: 13px;
+}
+

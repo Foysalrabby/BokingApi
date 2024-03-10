@@ -92,6 +92,7 @@ navigate("/list",{state:{state,optionsnum,destinationdata}} );
             onChange={item => setState([item.selection])}
             moveRangeOnFirstSelection={false}
             ranges={state}
+            minDate={new Date()}
             className='date1'
             />
 
