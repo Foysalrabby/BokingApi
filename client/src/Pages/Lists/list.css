@@ -1,0 +1,28 @@
+.Listcontainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.listwrapper{
+    display: flex;
+    width: 100%;
+    max-width: 1024px;
+    gap: 20px;
+}
+.listsearch{
+    flex: 1;
+  background-color: rgba(240, 205, 9, 0.884);
+  padding: 10px;
+  border-radius: 10px;
+  position: sticky;
+
+}
+.listsearchtitle{
+   color: aliceblue;
+   margin-bottom: 10px;
+   
+}
+.listresult{
+    flex: 3;
+    background-color: aqua;
+}

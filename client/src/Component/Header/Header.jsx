@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 const Header = ({type}) => {
       const navigate=useNavigate(); //use value pass with click btn go page
+      const [destinationdata,setdestinationdata]=useState(""); //to go input header value inlist.jsx
      const [opendate,setopendate]=useState(false); // for date open and off
     const [state, setState] = useState([
         {
@@ -40,7 +41,7 @@ const handleopen =(name,operation) => {
 };
 //handle search btn to go list.jsx
 const handleSearchbtn=()=>{
-navigate("/list");
+navigate("/list",{state:} );
 }
   
     return (
@@ -78,7 +79,7 @@ navigate("/list");
         <div className="HeaderSearch">
         <div className="HeaderSearchitem">
           <MdHotel className='headericon' />
-       <input type="text" placeholder='Where Are You Going ?' className='inputseacrheader' />
+       <input type="text"  placeholder='Where Are You Going ?' className='inputseacrheader' />
          </div>
          <div className="HeaderSearchitem">
           <MdDateRange  className='headericon' />

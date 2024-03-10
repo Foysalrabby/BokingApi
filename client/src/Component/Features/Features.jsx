@@ -17,7 +17,7 @@ const Features = () => {
         </div>
 
         <div className="featureditem">
-          <img src={"http://samogoo.net/uploads/a6/a637869bd067c0f01b3560403cf5ea65_2014-12-19_11-45-27.jpg"}
+          <img src={"https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/bedroom-interior-pictures.png"}
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Dhaka </h1>
@@ -44,7 +44,7 @@ const Features = () => {
           </div>
         </div>
         <div className="featureditem">
-          <img src={"http://samogoo.net/uploads/a6/a637869bd067c0f01b3560403cf5ea65_2014-12-19_11-45-27.jpg"}
+          <img src={"https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/bedroom-interior-pictures.png"}
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Sylhet </h1>
