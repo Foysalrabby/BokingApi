@@ -41,7 +41,7 @@ const handleopen =(name,operation) => {
 };
 //handle search btn to go list.jsx
 const handleSearchbtn=()=>{
-navigate("/list",{state:} );
+navigate("/list",{state:{state,optionsnum,destinationdata}} );
 }
   
     return (
@@ -79,7 +79,7 @@ navigate("/list",{state:} );
         <div className="HeaderSearch">
         <div className="HeaderSearchitem">
           <MdHotel className='headericon' />
-       <input type="text"  placeholder='Where Are You Going ?' className='inputseacrheader' />
+       <input type="text" onChange={(e=>setdestinationdata(e.target.value))} placeholder='Where Are You Going ?' className='inputseacrheader' />
          </div>
          <div className="HeaderSearchitem">
           <MdDateRange  className='headericon' />
