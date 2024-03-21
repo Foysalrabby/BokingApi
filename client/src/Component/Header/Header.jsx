@@ -18,7 +18,7 @@ const Header = ({type}) => {
       const navigate=useNavigate(); //use value pass with click btn go page
       const [destinationdata,setdestinationdata]=useState(""); //to go input header value inlist.jsx
      const [opendate,setopendate]=useState(false); // for date open and off
-    const [state, setState] = useState([
+    const [dates, setState] = useState([
         {
           startDate: new Date(),
           endDate: new Date(),
@@ -41,7 +41,7 @@ const handleopen =(name,operation) => {
 };
 //handle search btn to go list.jsx
 const handleSearchbtn=()=>{
-navigate("/list",{state:{state,optionsnum,destinationdata}} );
+navigate("/list",{state:{dates,optionsnum,destinationdata}} );
 }
   
     return (
@@ -84,14 +84,14 @@ navigate("/list",{state:{state,optionsnum,destinationdata}} );
          <div className="HeaderSearchitem">
           <MdDateRange  className='headericon' />
          <span onClick={()=> setopendate(!opendate)}
-          className='headertext'>{`${format(state[0].startDate,"dd-MM-yyyy")} to
-         ${format(state[0].endDate,"dd-MM-yyyy") }
+          className='headertext'>{`${format(dates[0].startDate,"dd-MM-yyyy")} to
+         ${format(dates[0].endDate,"dd-MM-yyyy") }
          `}</span>
          {  opendate  && <DateRange 
             editableDateInputs={true}
             onChange={item => setState([item.selection])}
             moveRangeOnFirstSelection={false}
-            ranges={state}
+            ranges={dates}
             minDate={new Date()}
             className='date1'
             />

@@ -8,9 +8,9 @@ import { DateRange } from 'react-date-range';
 
 const List = () => {
     const Location=useLocation();
-    const [takedate,setdate]=useState(Location.state.state); //state,optionsnum,destinationdata
+    const [takedate,setdate]=useState(Location.state.dates[0]); //state,optionsnum,destinationdata
     const [takedestination,setdestination]=useState(Location.state.destinationdata); //to use sesdate
-    const [opentakedate,setopentakedate]=useState(false)
+    const [opentakedate,setopentakedate]=useState(false);
     const [takepeople,setpeople]=useState(Location.state.optionsnum);
     console.log(Location);
     return (
