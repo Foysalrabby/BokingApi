@@ -8,7 +8,7 @@ import { DateRange } from 'react-date-range';
 
 const List = () => {
     const Location=useLocation();
-    const [takedate,setdate]=useState(Location.state.dates[0]); //state,optionsnum,destinationdata
+    const [takedate,setdate]=useState(Location.state.dates); //state,optionsnum,destinationdata
     const [takedestination,setdestination]=useState(Location.state.destinationdata); //to use sesdate
     const [opentakedate,setopentakedate]=useState(false);
     const [takepeople,setpeople]=useState(Location.state.optionsnum);
@@ -36,6 +36,44 @@ const List = () => {
                    />}
                    
                  </div>
+
+                 <div className="listtem">
+                 <label className='options' > Options</label>
+                 <div className="listOptionitem">
+                  <span className='listoptionitemtext'>
+                    Min Price <small> per night</small>
+                  </span>
+                  <input type="number" placeholder='4' />
+                 </div>
+
+                 <div className="listOptionitem">
+                  <span className='listoptionitemtext'>
+                    Max Price <small> per night</small>
+                  </span>
+                  <input type="number" placeholder='4' />
+                 </div>
+                 <div className="listOptionitem">
+                  <span className='listoptionitemtext'>
+                   Adult
+                  </span>
+                  <input type="number" min={1} placeholder={takepeople.adult} />
+                 </div>
+                 <div className="listOptionitem">
+                  <span className='listoptionitemtext'>
+                    Children
+                  </span>
+                  <input type="number" min={0} placeholder={takepeople.child} />
+                 </div>
+                 <div className="listOptionitem">
+                  <span className='listoptionitemtext'>
+                    Room
+                  </span>
+                  <input type="number" min={1} placeholder={takepeople.room} />
+                 </div>
+
+                 </div>
+
+
 
            </div>
            <div className="listresult"></div>
