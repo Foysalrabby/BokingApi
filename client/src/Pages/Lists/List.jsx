@@ -5,6 +5,7 @@ import './list.css';
 import { format, setDate  } from 'date-fns';
 import { useLocation } from 'react-router-dom';
 import { DateRange } from 'react-date-range';
+import Reasultsearch from '../../Component/ResultSearch/Reasultsearch';
 
 const List = () => {
     const Location=useLocation();
@@ -18,9 +19,9 @@ const List = () => {
             <Navbar/>
             <Header type = "listshow"/>
             <div className="Listcontainer">
-             <div className="listwrapper">
-           <div className="listsearch">
-                 <h2 className='listsearchtitle'>Search</h2>
+            <div className="listwrapper">
+            <div className="listsearch">
+            <h2 className='listsearchtitle'>Search</h2>
                  <div className="lsitem">
                     <label>Destination</label>
                     <input type="text" placeholder={takedestination} className='inDesination' />
@@ -73,13 +74,19 @@ const List = () => {
 
                  </div>
 
+                <button className='Listsearchbtn'> Search</button>
 
+              </div>
 
-           </div>
-           <div className="listresult"></div>
-             </div>
+              <div className="listresult">
+                  <Reasultsearch/>
+
+                  </div>
+
             </div>
-        </div>
+
+            </div>
+         </div>
     );
 };
 

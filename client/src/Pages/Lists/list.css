@@ -1,13 +1,17 @@
 .Listcontainer{
     display: flex;
-    justify-content: center;
+    justify-content: center;   
     margin-top: 20px;
+    
+    
 }
 .listwrapper{
-    display: flex;
     width: 100%;
     max-width: 1024px;
+    display: flex;
     gap: 20px;
+    
+    
 }
 .listsearch{
     flex: 1;
@@ -23,8 +27,10 @@
    
 }
 .listresult{
+  
     flex: 3;
-    background-color: aqua;
+    background-color: antiquewhite;
+   
 }
 .listsearch label{
     font-size: 13px;
@@ -71,4 +77,13 @@ font-size: 13px;
     padding-top: 10px;
     padding-bottom: 5px;
     font-weight: 300;
+}
+.Listsearchbtn{
+    margin-top: 5px;
+    border: none;
+    background-color: rgb(60, 92, 235);
+    color: antiquewhite;
+    cursor: pointer;
+    width: 90%;
+    padding: 5px;
 }

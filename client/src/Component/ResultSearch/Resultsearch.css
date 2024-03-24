@@ -1,0 +1,13 @@
+.reasulsearchitem{
+    border: 1px solid rgb(204, 185, 185); 
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+     
+     
+  }
+
+  .reasulsearchitem img{
+    width: 210px;
+    height: 210px;
+}
