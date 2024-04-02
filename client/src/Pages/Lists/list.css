@@ -18,7 +18,8 @@
   background-color: rgba(240, 205, 9, 0.884);
   padding: 10px;
   border-radius: 10px;
-  position: sticky;
+  position: -webkit-sticky;
+  height: max-content;
 
 }
 .listsearchtitle{

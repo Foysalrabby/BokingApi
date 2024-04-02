@@ -3,6 +3,7 @@
     display: flex;
     gap: 20px;
     padding: 10px;
+    margin-bottom: 10px;
      
      
   }
@@ -10,4 +11,91 @@
   .reasulsearchitem img{
     width: 210px;
     height: 210px;
+}
+.reachitem2{
+  display: flex;
+  flex: 5;
+  flex-direction: column;
+  
+}
+.resusubitemTitle{
+  color: rgb(31, 102, 102);
+}
+.resusubitemsubdis{
+  font-size: 14px;
+  padding-bottom: 6px;
+  font-weight: 500;
+}
+.resusubitemsubtexi{
+  font-size: 14px;
+  padding-bottom: 7px;
+  background-color: rgb(68, 58, 212);
+  width: max-content;
+  border-radius: 5px;
+
+}
+.resusubitemsubtittle{
+  font-size: 14px;
+  padding-bottom: 4px;
+  font-weight: bold;
+}
+.resusubitemsubfeature{
+  font-size: 14px;
+  padding-bottom: 4px;
+}
+.resusubitemcancel{
+  font-size: 15px;
+  color: darkblue;
+  font-weight: bold;
+}
+.resusubitemcanceldes{
+  font-size: 14px;
+  padding-bottom: 4px;
+  color: darkblue;
+}
+.reachitem3{
+  flex: 1;
+}
+.Rattingseeearchitem{
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+.excellent{
+  font-size: 16px;
+  color: black;
+  font-weight: 800;
+}
+.rattingfitem{
+  font-size: 16px;
+  background-color: blue;
+  color: aliceblue;
+ padding-left: 4px;
+ padding-right: 3px;
+}
+.Priceandabelitity{
+  display: flex;
+  flex-direction: column;
+ justify-content: right;
+ align-items: end;
+}
+.searchitemprice{
+  font-size: 16px;
+  color: black;
+  font-weight: 700;
+  
+}
+.Taxsearchitem{
+  font-size: 14px;
+  color: black;
+  padding-bottom: 10px;
+  
+}
+.resultbtnabilty{
+background-color: blue;
+color: aliceblue;
+border: none;
+cursor: pointer;
+padding: 5px;
+border-radius: 5px;
 }

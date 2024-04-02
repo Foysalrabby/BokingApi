@@ -80,6 +80,11 @@ const List = () => {
 
               <div className="listresult">
                   <Reasultsearch/>
+                  <Reasultsearch/>
+                  <Reasultsearch/>
+                  <Reasultsearch/>
+                  <Reasultsearch/>
+                  
 
                   </div>
 
