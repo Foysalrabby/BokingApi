@@ -1,0 +1,91 @@
+.Hotelcointainer{
+    display: flex;
+    
+    margin-top: 10px;
+    justify-content: center;
+}
+.Hotelwapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1024px;
+}
+.Hotelheader{
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+}
+.hotelides{
+    margin-left: 10px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.Hotelexcellent{
+    color: rgb(91, 118, 240);
+    font-weight: 500;
+
+}
+.Hotelporperty{
+    color: rgb(91, 118, 240);
+    font-size: 13px;
+    font-weight: 500;  
+}
+.Hotelphotodes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    
+}
+.HotelphotodesImg{
+    width: 250px;
+    height: 250px;
+}
+.Hotelsubcriber{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 5px 0px;
+}
+.Hotelsubcriberdes11{
+    flex: 2;
+}
+.Hotelsubcriberdes22{
+    background-color: aquamarine;
+    padding: 3px 4px;
+   position: relative; 
+  flex: 1;  
+}
+.Hotelsubcribertittle{
+    font-size: 15px;
+    font-weight: 700;
+}
+.Hotelsubcriberdestitle{
+    color: black;
+    font-size: 14px;
+}
+.Hotelsubcriberdessubtille{
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+}
+.Hotelsubcriberdessubprice
+{
+    font-size: 15px;
+    color: black;
+    font-weight: 800;
+    padding-bottom: 20px;
+}
+.Hotelsubcriberdesbtn{
+border: none;
+cursor: pointer;
+background-color: blue;
+color: aliceblue;
+padding: 8px;
+width: 70%;
+position: absolute;
+margin-left: 50px;
+margin-right: 50px;
+bottom: 3px;
+border-radius: 10px;
+}

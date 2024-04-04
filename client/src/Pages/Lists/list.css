@@ -10,7 +10,7 @@
     max-width: 1024px;
     display: flex;
     gap: 20px;
-    
+    position: relative;
     
 }
 .listsearch{
@@ -18,7 +18,9 @@
   background-color: rgba(240, 205, 9, 0.884);
   padding: 10px;
   border-radius: 10px;
-  position: -webkit-sticky;
+  position: sticky; /* Use 'sticky' without vendor prefix */
+  top: 0; /* Stick to the top */
+  z-index: 100;
   height: max-content;
 
 }
