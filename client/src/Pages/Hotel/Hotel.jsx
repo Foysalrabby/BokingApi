@@ -4,7 +4,11 @@ import Navbar from '../../Component/Navbar/Navbar';
 import Header from '../../Component/Header/Header';
 import Maillist from '../../Component/Maillist/Maillist';
 import Footer from '../../Component/Footer/Footer.jsx';
+import { FaArrowLeft } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa";
 import { MdHotel } from "react-icons/md";
+import { MdOutlineCancel } from "react-icons/md";
+import { useState } from 'react';
 
 const Hotel = () => {
 const photo=[
@@ -33,13 +37,32 @@ const photo=[
       photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg"
     },
     ];
+    // to open the image and zoom in
+     const [Viewsimg,setViewimg]=useState(0);
+     const [openViewsimg,setopenViewsimg]=useState(false);
+     //handle open
+     const handleopenimg=(i)=>{
+          setViewimg(i);
+          setopenViewsimg(true);
+     }
+
     return ( 
         <div>
         <Navbar/>
         <Header type="listshow"/>
         <div className='Hotelcointainer'>
+        {
+         openViewsimg && <div className='Sliderimageshow'> 
+         <MdOutlineCancel />
+         <FaArrowLeft />
+         
+          <img src={photo[Viewsimg].photourl} className='HotelsiderImg'/>
+         <FaArrowRight />
+         </div>
+            }
             <div className='Hotelwapper'>
                 <div className=' Hoteldescribtion'>
+                <button className='HotelheaderBTN'>Book Now </button>
                  <p className='Hotelheader'> Grand Hotel</p>
                  <div className='hotelicondes'>
                   <MdHotel/> 
@@ -52,8 +75,8 @@ const photo=[
 
                  <div className='Hotelphotodes'>
                   {
-                    photo.map( photoid=><div className='HotelImg'>
-                         <img src={photoid.photourl} alt='M' className='HotelphotodesImg' />
+                    photo.map( (photoid,i)=><div className='HotelImg'>
+                         <img onClick={()=>handleopenimg(i)} src={photoid.photourl} alt='M' className='HotelphotodesImg' />
                     </div>)
                   }
                      
@@ -86,7 +109,7 @@ const photo=[
                  
 
                 </div>
-                
+               
             </div>
 
             <Maillist />

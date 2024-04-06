@@ -9,6 +9,19 @@
     flex-direction: column;
     width: 100%;
     max-width: 1024px;
+    align-content: center;
+}
+.Hoteldescribtion{
+    position: relative;
+}
+.HotelheaderBTN{
+    position: absolute;
+   right: 0px;
+   margin-top: 10px;
+}
+.Sliderimageshow{
+    position: absolute;
+   
 }
 .Hotelheader{
     font-size: 20px;
@@ -20,6 +33,7 @@
     font-size: 13px;
     font-weight: 700;
 }
+
 .Hotelexcellent{
     color: rgb(91, 118, 240);
     font-weight: 500;
