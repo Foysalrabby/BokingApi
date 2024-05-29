@@ -45,7 +45,23 @@ const photo=[
           setViewimg(i);
           setopenViewsimg(true);
      }
+    //handle arrow increase index number with use same parameter
 
+    const handlemovearow=(direction)=>{
+      let newsetincreseviewnumber;
+      if(direction === 'l'){
+        newsetincreseviewnumber = Viewsimg === 0 ? photo.length :Viewsimg-1;
+        
+        
+      }else{
+        newsetincreseviewnumber = Viewsimg === photo.length ? 0 : Viewsimg+1;
+      
+      }
+      setViewimg(newsetincreseviewnumber%photo.length);  
+    
+    }
+
+    
     return ( 
         <div>
         <Navbar/>
@@ -53,11 +69,13 @@ const photo=[
         <div className='Hotelcointainer'>
         {
          openViewsimg && <div className='Sliderimageshow'> 
-         <MdOutlineCancel />
-         <FaArrowLeft />
-         
-          <img src={photo[Viewsimg].photourl} className='HotelsiderImg'/>
-         <FaArrowRight />
+         <MdOutlineCancel className='closeIcon' onClick={()=>setopenViewsimg(false)}/>
+         <FaArrowLeft className='leftarrow' onClick={()=> handlemovearow("l")}/>
+         <div className="slidderImagewrapper">
+         <img src={photo[Viewsimg].photourl} className='HotelsiderImg'/>
+         </div>
+          
+         <FaArrowRight className='rightarrow' onClick={()=> handlemovearow("r")}/>
          </div>
             }
             <div className='Hotelwapper'>
@@ -75,7 +93,7 @@ const photo=[
 
                  <div className='Hotelphotodes'>
                   {
-                    photo.map( (photoid,i)=><div className='HotelImg'>
+                    photo.map((photoid,i) => <div className='HotelImg'>
                          <img onClick={()=>handleopenimg(i)} src={photoid.photourl} alt='M' className='HotelphotodesImg' />
                     </div>)
                   }

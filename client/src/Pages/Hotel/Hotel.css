@@ -1,8 +1,8 @@
 .Hotelcointainer{
     display: flex;
-    
+    flex-direction: column;
     margin-top: 10px;
-    justify-content: center;
+   align-items: center;
 }
 .Hotelwapper{
     display: flex;
@@ -20,9 +20,52 @@
    margin-top: 10px;
 }
 .Sliderimageshow{
-    position: absolute;
+    position: sticky;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    z-index: 999;
    
 }
+.slidderImagewrapper{
+    width: 80%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+   align-items: center;
+ 
+
+}
+.HotelsiderImg{
+    width: 80%;
+    height: 80%;
+}
+.closeIcon{
+    position: absolute;
+   color: rgb(19, 20, 20); 
+   font-size: 25px;
+   top: 20px;
+    right: 200px;
+    cursor: pointer;
+
+}
+.leftarrow{
+color: rgb(29, 30, 31);
+font-size: 23px;
+margin-left: 20px;
+cursor: pointer;
+}
+.rightarrow{
+   color: rgb(15, 15, 15);
+   font-size: 23px;
+   cursor: pointer;
+   
+}
+
+
 .Hotelheader{
     font-size: 20px;
     font-weight: 700;
