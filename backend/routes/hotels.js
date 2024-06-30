@@ -26,7 +26,7 @@ router.put("/:id",VarifyAdmin,updateHotel);
 router.delete("/:id",VarifyAdmin,deletHotel);
 
 //get
-router.get("/:id",getidHotel );
+router.get("/find/:id",getidHotel );
 
 //all get
 
