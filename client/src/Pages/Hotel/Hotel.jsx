@@ -50,14 +50,19 @@ const photo=[
     const handlemovearow=(direction)=>{
       let newsetincreseviewnumber;
       if(direction === 'l'){
-        newsetincreseviewnumber = Viewsimg === 0 ? photo.length :Viewsimg-1;
-        
+        // newsetincreseviewnumber = Viewsimg === 0 ? photo.length :Viewsimg-1;
+        if(Viewsimg === 0){
+          newsetincreseviewnumber= photo.length - 1;
+        }
+        else{
+          newsetincreseviewnumber=Viewsimg;
+        }
         
       }else{
         newsetincreseviewnumber = Viewsimg === photo.length ? 0 : Viewsimg+1;
       
       }
-      setViewimg(newsetincreseviewnumber%photo.length);  
+      setViewimg(newsetincreseviewnumber% photo.length);  
     
     }
 

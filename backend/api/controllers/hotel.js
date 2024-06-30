@@ -1,3 +1,4 @@
+import { response } from "express";
 import Hotel from "../Model/Hotel.js";
 
 // create hotels
@@ -61,5 +62,18 @@ export const getallHotel= async(req,res,next)=>{
           next(error);
           
       }
+
+}
+//to use fronentallhotel
+export  const getallhotelcountbycity=async(req,res,next)=>{
+    const cities=req.query.cities.split()
+    try{
+        const list=await Promise.all(cities.map(cities=>{
+            return Hotel.find({city:city}).length //this use fectch all infromation of api
+        }))
+    }
+    catch(error){
+        next(error)
+    }
 
 }
