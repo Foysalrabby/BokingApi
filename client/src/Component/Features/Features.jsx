@@ -8,6 +8,8 @@ const Features = () => {
    console.log(data);
   return (
         <div className='featured'>
+        { load?("loading is true"):(
+        <>
         <div className="featureditem">
         {/* <img src="https://drive.google.com/uc?export=view&id=1mMbf2kzrbCyBrjx1VxSV05XfxDDxlnN9"
           alt="Drive Preview"/> */}
@@ -16,7 +18,7 @@ const Features = () => {
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Rajshahi </h1>
-            <h1>123 properties </h1>
+            <h1>{data[0]} </h1>
           </div>
         </div>
 
@@ -25,7 +27,7 @@ const Features = () => {
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Dhaka </h1>
-            <h1>453 properties </h1>
+            <h1>{data[1]} </h1>
           </div>
         </div>
           
@@ -35,7 +37,7 @@ const Features = () => {
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>khulna </h1>
-            <h1>453 properties </h1>
+            <h1>{data[1]} </h1>
           </div>
         </div>
 
@@ -44,7 +46,7 @@ const Features = () => {
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Borishal </h1>
-            <h1>453 properties </h1>
+            <h1>{data[3]} </h1>
           </div>
         </div>
         <div className="featureditem">
@@ -52,7 +54,7 @@ const Features = () => {
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Sylhet </h1>
-            <h1>453 properties </h1>
+            <h1>{data[2]} </h1>
           </div>
         </div>
         <div className="featureditem">
@@ -60,9 +62,9 @@ const Features = () => {
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Rongpur </h1>
-            <h1>453 properties </h1>
+            <h1>{data[0]} </h1>
           </div>
-        </div>
+        </div></>)}  
         
         </div>
     );
