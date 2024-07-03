@@ -1,8 +1,12 @@
 import React from 'react';
 import './Features.css';
+import useFetchdata from '../../Hooks/Usefetchdata';
 
 const Features = () => {
-    return (
+
+  const {data,load,error}=useFetchdata("hotels/countbycityname?cities=Rajshahi,Dhaka,Rongpur,Borishal");
+   console.log(data);
+  return (
         <div className='featured'>
         <div className="featureditem">
         {/* <img src="https://drive.google.com/uc?export=view&id=1mMbf2kzrbCyBrjx1VxSV05XfxDDxlnN9"
