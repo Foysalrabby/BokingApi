@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 import { createError } from "../api/Untils/error.js";
-import { createHotel, deletHotel, getallHotel, getallhotelcountbycity, getidHotel, updateHotel } from "../api/controllers/hotel.js";
+import { createHotel, deletHotel, getallHotel, getallhotelcountbycity, getallhoteltype, getidHotel, updateHotel } from "../api/controllers/hotel.js";
 import { VarifyAdmin } from "../api/Untils/Varifytoken.js";
 
 
@@ -33,7 +33,7 @@ router.get("/find/:id",getidHotel );
 router.get("/",getallHotel);
 
 router.get("/countbycityname",getallhotelcountbycity);
-router.get("/countbytype",getallHotel);
+router.get("/countbytype",getallhoteltype);
     
 
 export default router;

@@ -62,7 +62,7 @@ const Features = () => {
            alt="m" className='featureImg' />
           <div className="features_title">
             <h1>Rongpur </h1>
-            <h1>{data[0]} </h1>
+            <h1>{data[0]}  </h1>
           </div>
         </div></>)}  
         

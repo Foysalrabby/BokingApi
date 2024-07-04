@@ -9,8 +9,10 @@ import authHotels from './routes/hotels.js';
 import authRooms from './routes/rooms.js';
 import authUser from './routes/users.js';
 import dotenv from 'dotenv' ;
+import cors from "cors";
 import  cookieParser   from 'cookie-parser';
 dotenv.config();
+
 const port=5000;
 
 //connect moongse
@@ -61,6 +63,7 @@ mongoose.connection.on("connected",()=>{
 
 //middleware
 app.use(express.json());
+app.use(cors());
 app.use(cookieParser());
 // app.use(bodyParser.json());
 app.use("/auth",authRoute);
