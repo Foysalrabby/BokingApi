@@ -19,6 +19,7 @@
 .Propertytittle h1{
  font-size: 15px;
  color: rgb(38, 61, 53);
+ text-transform: capitalize;
 
 }
 .Propertytittle h2{

@@ -1,47 +1,42 @@
 import React from 'react';
 import './Propertieslist.css';
+import useFetchdata from '../../Hooks/Usefetchdata';
 const Propertieslist = () => {
+const {data,load,error}=useFetchdata("hotels/countbytype?type=hotel,apartment,villa,resorts,cabin");
+console.log(data);
+   const image=[
+           "https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/Bedroom-interior-design-images.png" ,
+           "https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/small-bedroom-interior-design-photos.png",
+           "https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/bedroom-interior-pictures.png" ,
+           "https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/Bedroom-interior-design-images.png",
+           "https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/best-bedroom-interior-design-images.png"
+
+
+        ]
     return (
         <div className='Propertylist'>
-        <div className="Propertyitem">
-         <img src="https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/Bedroom-interior-design-images.png" className='PropertyImg'  alt="" />
+        {load?("loading is true"):(
+            <>
+        {
+        data && image.map((img,index)=>(
+     <div className="Propertyitem" key={index}>
+         <img src={img} className='PropertyImg'  alt="" />
          <div className="Propertytittle">
-          <h1>Hotel</h1>
-          <h2>Hotel 233</h2>
+          <h1>{data[index]?.type}</h1>
+          <h2> {data[index]?.type} {data[index]?.count}</h2>
          </div>
         </div>
-
-        <div className="Propertyitem">
-         <img src="https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/small-bedroom-interior-design-photos.png"  className='PropertyImg' alt="" />
-         <div className="Propertytittle">
-          <h1>Hotel</h1>
-          <h2>Hotel 234</h2>
-         </div>
-        </div>
-
-        <div className="Propertyitem">
-         <img src="https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/bedroom-interior-pictures.png"  className='PropertyImg' alt="" />
-         <div className="Propertytittle">
-          <h1>Hotel</h1>
-          <h2>Hotel 235</h2>
-         </div>
-        </div>
-        <div className="Propertyitem">
-         <img src="https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/Bedroom-interior-design-images.png"  className='PropertyImg' alt="" />
-         <div className="Propertytittle">
-          <h1>Hotel</h1>
-          <h2>Hotel 236</h2>
-         </div>
-        </div>
-
-        <div className="Propertyitem">
-         <img src="https://bestinteriordesign.com.bd/wp-content/uploads/2022/06/best-bedroom-interior-design-images.png" className='PropertyImg'  alt="" />
-         <div className="Propertytittle">
-          <h1>Hotel</h1>
-          <h2>Hotel 237</h2>
-         </div>
-        </div>
+        ))
+        }
             
+
+     
+           
+     
+        
+
+        
+        </>)}   
         </div>
     );
 };
