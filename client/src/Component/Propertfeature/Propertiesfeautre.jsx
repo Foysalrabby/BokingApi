@@ -1,9 +1,15 @@
 import React from 'react';
 import './Propertiesfeatures.css';
+import useFetchdata from '../../Hooks/Usefetchdata';
 
 const Propertiesfeautre = () => {
+   const {data,load,error}=useFetchdata("hotels/countbytype?type=hotel,apartment,villa,resorts,cabin");
     return (
         <div className='PropertiesFeature'>
+          {
+            load ?("loading is true"):(
+          <>
+
         <div className="PropertiesitemFeat">
          <img src="https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Small-Salon-Interior-Design.jpg" alt="" className='PropertiesfeatuImg' />
          <span className='PFfname'>Chittagong Holicon view</span>
@@ -55,6 +61,8 @@ const Propertiesfeautre = () => {
             <span>Excellent</span>
          </div>
         </div>
+        </>) }
+
         </div>
     );
 };

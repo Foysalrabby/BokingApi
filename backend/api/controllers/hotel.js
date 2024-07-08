@@ -52,19 +52,48 @@ export const getidHotel= async(req,res,next)=>{
 
 }
 //get allhotels
-export const getallHotel= async(req,res,next)=>{
+export const getallHotel = async (req, res, next) => {
     try {
-        const hotels=  await Hotel.find();
-          return res.status(200).json(hotels);
-      } catch (error) {
-           //console.log(error);
-          // return res.status(500).send(error);
-          next(error);
-          
-      }
+        // Destructure min, max, and collect the rest in other
+        const { min, max, ...other } = { ...req.query };
+        let limit = parseInt(other.limit, 10);
 
-}
-//to use fronentallhotel
+        // Remove limit from other to avoid any issues with mongoose query
+        delete other.limit;
+
+        // Convert string 'true'/'false' to boolean
+        for (let key in other) {
+            if (other[key] === 'true') {
+                other[key] = true;
+            } else if (other[key] === 'false') {
+                other[key] = false;
+            }
+        }
+
+        // Set a default limit if none provided or if limit is invalid
+        if (isNaN(limit) || limit <= 0) {
+            limit = 10; // Default limit
+        }
+
+        // Build query object for MongoDB
+        const query = { ...other };
+
+        // Optionally, add price range filtering if min and max are provided
+        if (min !== undefined && max !== undefined) {
+            query.chepestprice = { $gte: parseInt(min), $lte: parseInt(max) };
+        }
+
+        // Fetch hotels based on constructed query and limit
+        const hotels = await Hotel.find(query).limit(limit);
+        
+        // Return JSON response with hotels
+        return res.status(200).json(hotels);
+    } catch (error) {
+        // Pass error to the next middleware for proper error handling
+        next(error);
+    }
+};
+//to use fronentallhotel koyta show korbo headerpor
 export  const getallhotelcountbycity=async(req,res,next)=>{
     const cities=req.query.cities.split(",")
     try{
@@ -78,7 +107,7 @@ export  const getallhotelcountbycity=async(req,res,next)=>{
     }
 
 }
-//getallhoteltype 
+//getallhoteltype  Browse Types Propertie
 export const getallhoteltype= async(req,res,next)=>{
     try{
         //hotel,apartment,villa,resorts,cabin api type=hotel use 
