@@ -6,8 +6,10 @@ import { format, setDate  } from 'date-fns';
 import { useLocation } from 'react-router-dom';
 import { DateRange } from 'react-date-range';
 import Reasultsearch from '../../Component/ResultSearch/Reasultsearch';
+import useFetchdata from '../../Hooks/Usefetchdata';
 
 const List = () => {
+     const{data,load,error}=useFetchdata();
     const Location=useLocation();
     const [takedate,setdate]=useState(Location.state.dates); //state,optionsnum,destinationdata
     const [takedestination,setdestination]=useState(Location.state.destinationdata); //to use sesdate
