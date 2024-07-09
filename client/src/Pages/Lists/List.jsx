@@ -9,12 +9,13 @@ import Reasultsearch from '../../Component/ResultSearch/Reasultsearch';
 import useFetchdata from '../../Hooks/Usefetchdata';
 
 const List = () => {
-     const{data,load,error}=useFetchdata();
+     
     const Location=useLocation();
     const [takedate,setdate]=useState(Location.state.dates); //state,optionsnum,destinationdata
     const [takedestination,setdestination]=useState(Location.state.destinationdata); //to use sesdate
     const [opentakedate,setopentakedate]=useState(false);
     const [takepeople,setpeople]=useState(Location.state.optionsnum);
+    const{data,load,error,refetch}=useFetchdata(`/hotels?city=${takedestination}`);
     console.log(Location);
     return (
         <div>  
@@ -79,14 +80,21 @@ const List = () => {
                 <button className='Listsearchbtn'> Search</button>
 
               </div>
-
+              
               <div className="listresult">
-                  <Reasultsearch/>
-                  <Reasultsearch/>
-                  <Reasultsearch/>
-                  <Reasultsearch/>
-                  <Reasultsearch/>
-                  
+
+              {load ?("load is true"):(
+              
+              <>
+              {data.map((item)=>(
+                <Reasultsearch item={item} key={item._id}/>
+              ))}
+              
+
+
+              
+                </>)}
+              
 
                   </div>
 
