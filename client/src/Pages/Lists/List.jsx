@@ -14,9 +14,16 @@ const List = () => {
     const [takedate,setdate]=useState(Location.state.dates); //state,optionsnum,destinationdata
     const [takedestination,setdestination]=useState(Location.state.destinationdata); //to use sesdate
     const [opentakedate,setopentakedate]=useState(false);
+    const [maxdata,setmaxdata]=useState(undefined);
+    const [mindata,setmindata]=useState(undefined);
     const [takepeople,setpeople]=useState(Location.state.optionsnum);
-    const{data,load,error,refetch}=useFetchdata(`/hotels?city=${takedestination}`);
+    const{data,load,error,refetch}=useFetchdata(`/hotels?city=${takedestination}&min=${mindata ||100}&max=${maxdata}`);
+
     console.log(Location);
+
+   const handleclickmaxmin=()=>{
+         refetch();
+    }
     return (
         <div>  
             <Navbar/>
@@ -47,14 +54,14 @@ const List = () => {
                   <span className='listoptionitemtext'>
                     Min Price <small> per night</small>
                   </span>
-                  <input type="number" placeholder='4' />
+                  <input type="number" onChange={e=>setmindata(e.target.value)} placeholder='4' />
                  </div>
 
                  <div className="listOptionitem">
                   <span className='listoptionitemtext'>
                     Max Price <small> per night</small>
                   </span>
-                  <input type="number" placeholder='4' />
+                  <input type="number" onChange={e=>setmaxdata(e.target.value)} placeholder='4' />
                  </div>
                  <div className="listOptionitem">
                   <span className='listoptionitemtext'>
@@ -77,7 +84,7 @@ const List = () => {
 
                  </div>
 
-                <button className='Listsearchbtn'> Search</button>
+                <button className='Listsearchbtn' onClick={()=>handleclickmaxmin()}> Search</button>
 
               </div>
               
