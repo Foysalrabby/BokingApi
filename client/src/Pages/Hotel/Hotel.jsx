@@ -9,8 +9,15 @@ import { FaArrowRight } from "react-icons/fa";
 import { MdHotel } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import useFetchdata from '../../Hooks/Usefetchdata.js';
 
 const Hotel = () => {
+  const location=useLocation();
+  console.log(location) //take searchresult one hotel id and path use usefetch
+ //pathname"0/hotel1/2 '65aac35ecee5f660a6f11401'"
+  const id=location.pathname.split("/")[5];
+ const {data,load,error,refetch} =useFetchdata(`/hotels/find/${id}`);
 const photo=[
   {
   photourl :"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg" 
@@ -71,6 +78,7 @@ const photo=[
         <div>
         <Navbar/>
         <Header type="listshow"/>
+        {load ?("loading"):(
         <div className='Hotelcointainer'>
         {
          openViewsimg && <div className='Sliderimageshow'> 
@@ -86,19 +94,19 @@ const photo=[
             <div className='Hotelwapper'>
                 <div className=' Hoteldescribtion'>
                 <button className='HotelheaderBTN'>Book Now </button>
-                 <p className='Hotelheader'> Grand Hotel</p>
+                 <p className='Hotelheader'> {data.name}</p>
                  <div className='hotelicondes'>
                   <MdHotel/> 
-                  <span className='hotelides'>Dhaka ,12 Baridhara</span>
+                  <span className='hotelides'>{data.address}</span>
                  </div>
                  <p className='Hotelexcellent'>Excellent  Features</p>
-                 <p className='Hotelporperty'> Book the Hotel and Price $123</p>
+                 <p className='Hotelporperty'> Book the Hotel and Price {data.chepestprice}</p>
                  </div>
 
 
                  <div className='Hotelphotodes'>
                   {
-                    photo.map((photoid,i) => <div className='HotelImg'>
+                    photo.map((photoid,i) => <div className='HotelImg' >
                          <img onClick={()=>handleopenimg(i)} src={photoid.photourl} alt='M' className='HotelphotodesImg' />
                     </div>)
                   }
@@ -109,12 +117,7 @@ const photo=[
                 <div className='Hotelsubcriberdes11'>
                 <h5 className='Hotelsubcribertittle'> Stay in the  heart of Gandview</h5>
                     <span className='Hotelsubcriberdestitle'>
-                    It is a long established fact that a reader will be distracted by 
-                    the readable content of a page when looking at its layout. The point of using 
-                    Lorem Ipsum is that it has a more-or-less normal distribution of letters, as 
-                    opposed to using 'Content here, content here', making it look like readable
-                    English. Many desktop publishing packages and web page editors 
-                    now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+                    {data.describtion}
                 </span>
 
                  </div>
@@ -134,7 +137,7 @@ const photo=[
                 </div>
                
             </div>
-
+          )}
             <Maillist />
             <Footer/>
         </div>
