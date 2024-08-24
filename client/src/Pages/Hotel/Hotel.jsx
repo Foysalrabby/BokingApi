@@ -15,35 +15,35 @@ import useFetchdata from '../../Hooks/Usefetchdata.js';
 const Hotel = () => {
   const location=useLocation();
   console.log(location) //take searchresult one hotel id and path use usefetch
- //pathname"0/hotel1/2 '65aac35ecee5f660a6f11401'"
-  const id=location.pathname.split("/")[5];
+ //pathname"0/hotel1/2 '65aac35ecee5f660a6f11401'" split hoi header link
+ const id=location.pathname.split("/")[2];
  const {data,load,error,refetch} =useFetchdata(`/hotels/find/${id}`);
-const photo=[
-  {
-  photourl :"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg" 
-  },
-  {
-    photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Small-Salon-Interior-Design.jpg"
-  },
-  {
-    photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/salon-interior-design-Insert-Lightning.jpg"
-  },
-  {
-    photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg"
-  },
-  {
-    photourl :"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg" 
-    },
-    {
-      photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Small-Salon-Interior-Design.jpg"
-    },
-    {
-      photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/salon-interior-design-Insert-Lightning.jpg"
-    },
-    {
-      photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg"
-    },
-    ];
+// const photo=[
+//   {
+//   photourl :"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg" 
+//   },
+//   {
+//     photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Small-Salon-Interior-Design.jpg"
+//   },
+//   {
+//     photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/salon-interior-design-Insert-Lightning.jpg"
+//   },
+//   {
+//     photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg"
+//   },
+//   {
+//     photourl :"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg" 
+//     },
+//     {
+//       photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Small-Salon-Interior-Design.jpg"
+//     },
+//     {
+//       photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/salon-interior-design-Insert-Lightning.jpg"
+//     },
+//     {
+//       photourl:"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg"
+//     },
+//     ];
     // to open the image and zoom in
      const [Viewsimg,setViewimg]=useState(0);
      const [openViewsimg,setopenViewsimg]=useState(false);
@@ -59,17 +59,17 @@ const photo=[
       if(direction === 'l'){
         // newsetincreseviewnumber = Viewsimg === 0 ? photo.length :Viewsimg-1;
         if(Viewsimg === 0){
-          newsetincreseviewnumber= photo.length - 1;
+          newsetincreseviewnumber= data.photo.length - 1;
         }
         else{
           newsetincreseviewnumber=Viewsimg;
         }
         
       }else{
-        newsetincreseviewnumber = Viewsimg === photo.length ? 0 : Viewsimg+1;
+        newsetincreseviewnumber = Viewsimg === data.photo.length ? 0 : Viewsimg+1;
       
       }
-      setViewimg(newsetincreseviewnumber% photo.length);  
+      setViewimg(newsetincreseviewnumber% data.photo.length);  
     
     }
 
@@ -85,7 +85,7 @@ const photo=[
          <MdOutlineCancel className='closeIcon' onClick={()=>setopenViewsimg(false)}/>
          <FaArrowLeft className='leftarrow' onClick={()=> handlemovearow("l")}/>
          <div className="slidderImagewrapper">
-         <img src={photo[Viewsimg].photourl} className='HotelsiderImg'/>
+         <img src={data.photo[Viewsimg]} className='HotelsiderImg'/>
          </div>
           
          <FaArrowRight className='rightarrow' onClick={()=> handlemovearow("r")}/>
@@ -106,7 +106,7 @@ const photo=[
 
                  <div className='Hotelphotodes'>
                   {
-                    photo.map((photoid,i) => <div className='HotelImg' >
+                    data.photo?.map((photoid,i) => <div className='HotelImg' >
                          <img onClick={()=>handleopenimg(i)} src={photoid.photourl} alt='M' className='HotelphotodesImg' />
                     </div>)
                   }
