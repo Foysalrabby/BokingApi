@@ -79,7 +79,7 @@ navigate("/list",{state:{dates,optionsnum,destinationdata}} );
         <div className="HeaderSearch">
         <div className="HeaderSearchitem">
           <MdHotel className='headericon' />
-       <input type="text" onChange={(e=>setdestinationdata(e.target.value))} placeholder='Where Are You Going ?' className='inputseacrheader' />
+       <input type="text" onChange={(e=>setdestinationdata(e.target.value.toLowerCase()))} placeholder='Where Are You Going ?' className='inputseacrheader' />
          </div>
          <div className="HeaderSearchitem">
           <MdDateRange  className='headericon' />
