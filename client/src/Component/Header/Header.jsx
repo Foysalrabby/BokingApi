@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import { MdHotel } from "react-icons/md";
 import { RiFlightTakeoffLine } from "react-icons/ri";
@@ -13,6 +13,7 @@ import { DateRange } from 'react-date-range';
 import { format  } from 'date-fns';
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
+import { SearchContext } from '../../context/Searchcontext';
 
 const Header = ({type}) => {
       const navigate=useNavigate(); //use value pass with click btn go page
@@ -39,8 +40,10 @@ const handleopen =(name,operation) => {
     }
   });
 };
+  const {dispatch}=useContext(SearchContext);
 //handle search btn to go list.jsx
 const handleSearchbtn=()=>{
+  dispatch({type:"New_Search",payload:{destinationdata,optionsnum,dates}});
 navigate("/list",{state:{dates,optionsnum,destinationdata}} );
 }
   

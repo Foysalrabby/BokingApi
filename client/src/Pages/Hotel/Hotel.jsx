@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Hotel.css';
 import Navbar from '../../Component/Navbar/Navbar';
 import Header from '../../Component/Header/Header';
@@ -11,6 +11,7 @@ import { MdOutlineCancel } from "react-icons/md";
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import useFetchdata from '../../Hooks/Usefetchdata.js';
+import { SearchContext } from '../../context/Searchcontext.js';
 
 const Hotel = () => {
   const location=useLocation();
@@ -18,6 +19,22 @@ const Hotel = () => {
  //pathname"0/hotel1/2 '65aac35ecee5f660a6f11401'" split hoi header link
  const id=location.pathname.split("/")[2];
  const {data,load,error,refetch} =useFetchdata(`/hotels/find/${id}`);
+
+ //usecontext 
+ const {dates}=useContext(SearchContext);
+ console.log(dates);
+ //to determine the specfic day
+// Constants
+const millisecondsInADay = 1000 * 60 * 60 * 24;
+
+// Function to determine the difference in days
+function dayTimeDiff(date1, date2) {
+  const timeDiff = Math.abs(date2.getTime() - date1.getTime()); // Corrected getTime()
+  const dayDiff = Math.ceil(timeDiff / millisecondsInADay);
+  return dayDiff;
+}
+ console.log(dayTimeDiff(dates[0].endDate,dates[0].startDate));
+
 // const photo=[
 //   {
 //   photourl :"https://bestinteriordesign.com.bd/wp-content/uploads/2022/11/Inserting-mirrors-in-salon-Design.jpg" 
@@ -106,7 +123,7 @@ const Hotel = () => {
 
                  <div className='Hotelphotodes'>
                   {
-                    data.photo?.map((photoid,i) => <div className='HotelImg' >
+                    data.photo?.map((photoid,i) => <div className='HotelImg' key={photoid} >
                          <img onClick={()=>handleopenimg(i)} src={photoid.photourl} alt='M' className='HotelphotodesImg' />
                     </div>)
                   }

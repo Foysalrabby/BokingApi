@@ -10,7 +10,7 @@ const Propertiesfeautre = () => {
             load ?("loading is true"):(
           <>
            {data && data.map((item)=>(
-            <div className="PropertiesitemFeat" key={item}>
+            <div className="PropertiesitemFeat" key={item._id}>
          <img src= {item.photo[0]} className='PropertiesfeatuImg' />
          <span className='PFfname'>{item.name}</span>
          <span className='PFfcity'>{item.city}</span>
