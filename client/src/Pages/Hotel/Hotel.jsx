@@ -21,7 +21,7 @@ const Hotel = () => {
  const {data,load,error,refetch} =useFetchdata(`/hotels/find/${id}`);
 
  //usecontext 
- const {dates}=useContext(SearchContext);
+ const {dates,optionsnum}=useContext(SearchContext);
  console.log(dates);
  //to determine the specfic day
 // Constants
@@ -33,7 +33,8 @@ function dayTimeDiff(date1, date2) {
   const dayDiff = Math.ceil(timeDiff / millisecondsInADay);
   return dayDiff;
 }
- console.log(dayTimeDiff(dates[0].endDate,dates[0].startDate));
+ //console.log(dayTimeDiff(dates[0].endDate,dates[0].startDate));
+ const day=dayTimeDiff(dates[0].endDate,dates[0].startDate);
 
 // const photo=[
 //   {
@@ -140,10 +141,10 @@ function dayTimeDiff(date1, date2) {
                  </div>
 
                     <div className='Hotelsubcriberdes22'>
-                        <p className='Hotelsubcriberdessubtille'> Lorem is a ggood buddy</p>
+                        <p className='Hotelsubcriberdessubtille'> Perfect for {day} night stay</p>
                         <span className='Hotelsubcriberdessub'>It is a long established fact that a reader will be distracted by 
                     the readable content of a page when looking at its layout.</span>
-                        <p className='Hotelsubcriberdessubprice'>$123</p>
+                        <p className='Hotelsubcriberdessubprice'>{day*optionsnum.room*data.chepestprice}</p>
                         <button className='Hotelsubcriberdesbtn'> Book Now</button>
                     </div>
                     
