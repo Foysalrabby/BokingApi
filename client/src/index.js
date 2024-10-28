@@ -5,14 +5,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { SearchContextProvider } from './context/Searchcontext';
+import { AuthContextProvider } from './context/Authentication';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <SearchContextProvider>
+  <AuthContextProvider>
   <App />
+  </AuthContextProvider>
   </SearchContextProvider>
-    
   </BrowserRouter>
 );
 
