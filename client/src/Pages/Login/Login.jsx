@@ -52,7 +52,7 @@ const Login = () => {
       />
 
              <button onClick={handleClick} className="login-button"> login</button>
-             {error&& <p className="error-text">error.message</p>}
+             {error&& <p className="error-text">Wrong Username And Password  </p>}
         </div>
         </div>
     );

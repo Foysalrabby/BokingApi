@@ -43,7 +43,7 @@ const {username,password, ...otheedeails}=usercheck._doc;
  //jwtwebtoken
  
 const token = jwt.sign({ id:usercheck._id,isAdmin:usercheck.isAdmin}, process.env.JW_TOKEN);
-res.cookie("access_token",token,{expiresIn:'7d',httpOnly:true}).status(200).json({data:{...otheedeails}});
+res.cookie("access_token",token,{expiresIn:'7d',httpOnly:true}).status(200).json({data:{...otheedeails,username}});
 
 // res.cookie( "access_token",token,{
 //     httpOnly:true
