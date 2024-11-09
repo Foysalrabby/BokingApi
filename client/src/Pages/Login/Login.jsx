@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './login.css';
 import { useContext } from 'react';
 import { AuthLogincontext } from '../../context/Authentication';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 
@@ -11,6 +12,7 @@ const Login = () => {
         password:undefined
       })   
     const {user,loading,error,dispatch}=useContext(AuthLogincontext);
+    const naviagate=useNavigate();
     //take password and user name
     const handlechange=(e)=>{
           //setcredentcial((prev)=>({...prev,[e.target.id]:e.target.value})) ; 
@@ -27,6 +29,7 @@ const Login = () => {
     try{
    const res=await axios.post("auth/login",credentcial);
    dispatch({type:"Login_Success",payload:res.data})
+     naviagate("/");
     }catch(err){
       dispatch({type:"Login_Fail",payload:err.response?.data})     
     }
@@ -51,7 +54,7 @@ const Login = () => {
         className="login-input"
       />
 
-             <button onClick={handleClick} className="login-button"> login</button>
+             <button onClick={handleClick} disabled={loading} className="login-button"> login</button>
              {error&& <p className="error-text">Wrong Username And Password  </p>}
         </div>
         </div>
