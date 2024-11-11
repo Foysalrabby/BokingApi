@@ -14,11 +14,13 @@ import { format  } from 'date-fns';
 import {useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import { SearchContext } from '../../context/Searchcontext';
+import { AuthLogincontext } from '../../context/Authentication';
 
 const Header = ({type}) => {
       const navigate=useNavigate(); //use value pass with click btn go page
       const [destinationdata,setdestinationdata]=useState(""); //to go input header value inlist.jsx
      const [opendate,setopendate]=useState(false); // for date open and off
+     const {user}=useContext(AuthLogincontext);
     const [dates, setState] = useState([
         {
           startDate: new Date(),
@@ -77,7 +79,7 @@ navigate("/list",{state:{dates,optionsnum,destinationdata}} );
         <h2 className='headerTittle'>A Life Time Discount? It's Genius</h2>
        <p className='headerdes'>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
        Cumque eius optio amet facere ut nisi culpa quaerat explicabo quidem perferendis.</p>
-        <button className='navbutton'> SingIn/Register</button>
+        { !user && <button className='navbutton'> SingIn/Register</button>}
 
         <div className="HeaderSearch">
         <div className="HeaderSearchitem">

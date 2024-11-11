@@ -9,9 +9,11 @@ import { FaArrowRight } from "react-icons/fa";
 import { MdHotel } from "react-icons/md";
 import { MdOutlineCancel } from "react-icons/md";
 import { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useFetchdata from '../../Hooks/Usefetchdata.js';
 import { SearchContext } from '../../context/Searchcontext.js';
+import { AuthLogincontext } from '../../context/Authentication.jsx';
+import Reserve from '../../Component/Reserveroom/Reserve.jsx';
 
 const Hotel = () => {
   const location=useLocation();
@@ -20,10 +22,15 @@ const Hotel = () => {
  const id=location.pathname.split("/")[2];
  const {data,load,error,refetch} =useFetchdata(`/hotels/find/${id}`);
 
+ const {user}=useContext(AuthLogincontext);
+ const navigate=useNavigate();
+
  //usecontext 
  const {dates,optionsnum}=useContext(SearchContext);
  console.log(dates);
+
  //to determine the specfic day
+
 // Constants
 const millisecondsInADay = 1000 * 60 * 60 * 24;
 
@@ -34,7 +41,7 @@ function dayTimeDiff(date1, date2) {
   return dayDiff;
 }
  //console.log(dayTimeDiff(dates[0].endDate,dates[0].startDate));
- const day=dayTimeDiff(dates[0].endDate,dates[0].startDate);
+ const day=dayTimeDiff(dates[0]?.endDate,dates[0]?.startDate);
 
 // const photo=[
 //   {
@@ -65,6 +72,8 @@ function dayTimeDiff(date1, date2) {
     // to open the image and zoom in
      const [Viewsimg,setViewimg]=useState(0);
      const [openViewsimg,setopenViewsimg]=useState(false);
+     const [openloginreserve,seuloginreserve]=useState(false);
+
      //handle open
      const handleopenimg=(i)=>{
           setViewimg(i);
@@ -90,7 +99,14 @@ function dayTimeDiff(date1, date2) {
       setViewimg(newsetincreseviewnumber% data.photo.length);  
     
     }
-
+//handle book button after take user from authlogincontext
+  const handleclikbook=()=>{
+           if(user){
+            seuloginreserve(true);
+           }else{
+            navigate("/login")
+           }
+    }
     
     return ( 
         <div>
@@ -145,7 +161,7 @@ function dayTimeDiff(date1, date2) {
                         <span className='Hotelsubcriberdessub'>It is a long established fact that a reader will be distracted by 
                     the readable content of a page when looking at its layout.</span>
                         <p className='Hotelsubcriberdessubprice'>{day*optionsnum.room*data.chepestprice}</p>
-                        <button className='Hotelsubcriberdesbtn'> Book Now</button>
+                        <button onClick={handleclikbook} className='Hotelsubcriberdesbtn'> Book Now</button>
                     </div>
                     
                  </div>
@@ -158,7 +174,9 @@ function dayTimeDiff(date1, date2) {
           )}
             <Maillist />
             <Footer/>
+            {openloginreserve && <Reserve seuloginreserve={seuloginreserve} hotelid={id}/>}
         </div>
+        
     );
 };
 
