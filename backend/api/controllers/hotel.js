@@ -1,5 +1,7 @@
 import { response } from "express";
 import Hotel from "../Model/Hotel.js";
+import Room from "../Model/Room.js";
+import mongoose from "mongoose";
 
 // create hotels
 export const createHotel= async(req,res,next)=>{
@@ -130,3 +132,33 @@ export const getallhoteltype= async(req,res,next)=>{
     }
 
 }
+//to reserve the room and room availity
+export const getallHotelRoom = async (req, res, next) => {
+    try {
+        const hotel = await Hotel.findById(req.params.id);
+        if (!hotel) {
+            return res.status(404).json({ message: "Hotel not found" });
+        }
+
+        // Ensure hotel has rooms
+        if (!hotel.room || hotel.room.length === 0) {
+            return res.status(200).json({ message: "No rooms found for this hotel", rooms: [] });
+        }
+
+        // Validate room IDs
+        const validRoomIds = hotel.room.filter((roomId) => mongoose.Types.ObjectId.isValid(roomId));
+
+        if (validRoomIds.length === 0) {
+            return res.status(400).json({ message: "No valid room IDs found" });
+        }
+
+        // Fetch rooms with valid IDs
+        const roomList = await Promise.all(
+            validRoomIds.map((roomId) => Room.findById(roomId))
+        );
+
+        res.status(200).json({ success: true, rooms: roomList });
+    } catch (error) {
+        next(error);
+    }
+};
