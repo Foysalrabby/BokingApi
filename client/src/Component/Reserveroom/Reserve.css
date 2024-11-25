@@ -1,0 +1,57 @@
+.reservecontainer{
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: rgba(44, 44, 44, 0.274);
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+}
+.reservesubcontainer{
+background-color:white ;
+padding: 30px;
+position: relative;
+    
+}
+.rsserveicon{
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+.Ritem{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+}
+.Riteminfo{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.selectroom{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 8px;
+}
+.roomid{
+    display: flex;
+    flex-direction: column;
+  
+    
+}
+.checkboxs{
+    margin: 0;
+}
+.Resevebtn{
+   
+    background-color: rgb(36, 121, 218);
+    color: aliceblue;
+    padding: 10px 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+}
