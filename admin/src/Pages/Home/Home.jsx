@@ -1,10 +1,14 @@
 import React from 'react';
 import './Home.scss';
+import Sidebar from '../../Component/Sidebar/Sidebar';
 
 const Home = () => {
     return (
         <div className='Home'>
-           <h1 className='Tittle'>hey  u</h1> 
+          <Sidebar/>
+          <div className="homecontainter">
+            <p> home</p>
+          </div>
         </div>
     );
 };

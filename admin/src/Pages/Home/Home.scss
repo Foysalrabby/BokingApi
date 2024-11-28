@@ -1,7 +1,8 @@
 .Home{
-    background-color: rgb(209, 147, 209);
-    .Tittle{
-        color: antiquewhite;
-    }
-
+  display: flex;
+  .homecontainter{
+    flex: 10;
+    background-color: aqua;
+    height: 100vh;
+  }
 }
